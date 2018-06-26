@@ -1,0 +1,27 @@
+[
+    {
+        "repas": 1,
+        "entry": "Salade verte et tomate",
+        "plat principal": "Tagliatelle carbonara",
+        "drink1": "Jus d'orange",
+        "drink2": "Jus multi-fruits",
+        "drink3": "Soda"
+    },
+    
+    {
+        "repas": 2,
+        "entry": "Salade carotte et choux",
+        "plat principal": "Tagliatelle bolognaise",
+        "drink1": "Jus d'orange",
+        "drink2": "Jus multi-fruits",
+        "drink3": "Soda"
+    },
+    {
+        "repas": 3,
+        "entry": "Salade niçoise",
+        "plat principal": "Poulet",
+        "drink1": "Jus d'orange",
+        "drink2": "Jus multi-fruits",
+        "drink3": "Soda"
+    }
+]

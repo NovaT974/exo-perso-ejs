@@ -4,24 +4,12 @@
     <main>
         <div class="container mt-5">
             <div class="row">
-                <article class="col-md-3 p-5 border bg-light">
-                    <p><%= repas %></p>
-                </article>
-                <article class="col-md-3 p-5 border bg-light">
-                    <p><%= entrymeal %></p>
-                </article>
-                <article class="col-md-3 p-5 border bg-light">
-                    <p><%= plat %></p>
-                </article>
-                <article class="col-md-3 p-5 border bg-light">
-                    <p><%= drink1 %></p>
-                </article>
-                <article class="col-md-6 p-5 border bg-light">
-                    <p><%= drink2 %></p>
-                </article>
-                <article class="col-md-6 p-5 border bg-light">
-                    <p><%= drink3 %></p>
-                </article>
+                hello
+                <% for (var i = 0; i < repas.length; i++) { %>
+                    <li class="list-group-item liste_competences">
+                   <h3> <%= repas[i].plat-principal %> </h3>  
+               </li>                         
+            <% } %>
             </div>
         </div>
     </main>
