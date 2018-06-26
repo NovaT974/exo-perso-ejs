@@ -4,12 +4,17 @@
     <main>
         <div class="container mt-5">
             <div class="row">
-                hello
-                <% for (var i = 0; i < repas.length; i++) { %>
-                    <li class="list-group-item liste_competences">
-                   <h3> <%= repas[i].plat-principal %> </h3>  
-               </li>                         
-            <% } %>
+                <ul class=" w-50 list-group list-group-flush">
+            <%repas.forEach(function(datas){ %>
+                <li class="list-group-item">
+                <div class="row">
+                    <div class="col-6 text-left"><%= datas.entry %></div>
+                    <div class="col-6 text-right">
+                        
+                    </div>
+                </div>
+            </li>
+            <% }); %>
             </div>
         </div>
     </main>

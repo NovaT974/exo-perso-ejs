@@ -1,51 +1,40 @@
-var express = require('express');
-var server = express();
-var request = require ('request');
-var port = "6002";
+const express = require('express');
+const app = express();
+const port = 7002;
+const request = require('request');
 
-server.use(express.static('static'));
 
-server.set('view engine', 'ejs');
 
-server.get('/', function (req, res) {
-    getResultat(function(err, data){
-        if(!err){
-               // res.send(data);
-               var plat = JSON.parse(data);
-                res.render('index', {
-                    repas: plat
-                });
-        }
-        else{
-              res.send(err);
-        }
+//app.use(express.json());
+app.use(express.static('static'));
 
-    });
+// utilisation du moteur de rendu ejs
+app.set('view engine', 'ejs');
 
-    var test = "Je suis la page d'accueil";
+const routeJson = __dirname + '/data/' + 'repas.json';
+const urlService = 'http://localhost:'+port+'/'+'liste';
 
-});
-
-server.get("/repas",function(req, res){
-    res.sendFile(__dirname +"/datas/repas.json");
-});
-
-function getResultat(callback){
-    //changer url par l'url de la ressource a recuperer.
-    var url = "http://localhost:'+ port +'/repas";
-    
-    //appel de la fonction request
-    request(url, function(error, response, body) {
-        if (!error && response.statusCode == 200) {
-            result = JSON.stringify(JSON.parse(body));
-            return callback(null, result);
+app.get('/', function (req, res) {
+    request(urlService, function (err, response, body) {
+        if (err) {
+            console.log(err);
         } else {
-            return callback(error, null);
+            const plat = JSON.parse(body);
+            console.log(plat);
+            res.render('index', {
+                repas: plat
+            });
         }
-    });
-}
+    })
+  
+});
 
+app.get('/liste', (req, res) => {
+    //    res.json(urlJson);
+   res.sendFile(routeJson);
+});
 
-server.listen(port, function(){
-    console.log('the port is on')
+// start the server
+app.listen(port,  function () {
+    console.log('Démarrage du serveur sur =>  http://localhost:' + port);
 });
